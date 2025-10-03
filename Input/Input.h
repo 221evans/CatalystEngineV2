@@ -18,8 +18,10 @@ class Input {
 public:
     Input();
     MoveDirection moveDirection;
-    void GetMoveDirection(const SDL_Event* event);
+    void HandleInput(const SDL_Event* event);
     ~Input();
+private:
+    bool keyStates[4]; // Tracking WASD (Expand when needed)
 };
 
 

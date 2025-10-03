@@ -7,33 +7,37 @@
 
 Input::Input() = default;
 
-void Input::GetMoveDirection(const SDL_Event* event)
+void Input::HandleInput(const SDL_Event* event)
 {
-    // Left movement
-    if (event->type == SDL_EVENT_KEY_DOWN) {
-        if (event->key.key == SDLK_A) {
-            moveDirection = MOVE_LEFT;
-        }
-    }
+    if (event->type == SDL_EVENT_KEY_DOWN || event->type == SDL_EVENT_KEY_UP) {
+        bool isPressed = (event->type == SDL_EVENT_KEY_DOWN);
 
-    // Right movement
-    if (event->type == SDL_EVENT_KEY_DOWN) {
-        if (event->key.key == SDLK_D) {
-            moveDirection = MOVE_RIGHT;
+        switch (event->key.key) {
+            case SDLK_W:
+                keyStates[0] = isPressed;
+                break;
+            case SDLK_A:
+                keyStates[1] = isPressed;
+                break;
+            case SDLK_S:
+                keyStates[2] = isPressed;
+                break;
+            case SDLK_D:
+                keyStates[3] = isPressed;
+                break;
         }
-    }
 
-    // Up movement
-    if (event->type == SDL_EVENT_KEY_DOWN) {
-        if (event->key.key == SDLK_W) {
+        if (keyStates[0]) {
             moveDirection = MOVE_UP;
         }
-    }
-
-    // Down movement
-    if (event->type == SDL_EVENT_KEY_DOWN) {
-        if (event->key.key == SDLK_S) {
+        if (keyStates[1]) {
+            moveDirection = MOVE_LEFT;
+        }
+        if (keyStates[2]) {
             moveDirection = MOVE_DOWN;
+        }
+        if (keyStates[3]) {
+            moveDirection = MOVE_RIGHT;
         }
     }
 }
