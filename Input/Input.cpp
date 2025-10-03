@@ -30,13 +30,13 @@ MoveDirection Input::HandleInput(const SDL_Event* event)
         if (keyStates[0]) {
             moveDirection = MOVE_UP;
         }
-        if (keyStates[1]) {
+        else if (keyStates[1]) {
             moveDirection = MOVE_LEFT;
         }
-        if (keyStates[2]) {
+        else if (keyStates[2]) {
             moveDirection = MOVE_DOWN;
         }
-        if (keyStates[3]) {
+        else if (keyStates[3]) {
             moveDirection = MOVE_RIGHT;
         }
         else {
