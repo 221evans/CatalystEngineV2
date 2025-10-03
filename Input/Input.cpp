@@ -25,6 +25,7 @@ MoveDirection Input::HandleInput(const SDL_Event* event)
             case SDLK_D:
                 keyStates[3] = isPressed;
                 break;
+            default: isPressed = false;
         }
 
         if (keyStates[0]) {
@@ -33,15 +34,16 @@ MoveDirection Input::HandleInput(const SDL_Event* event)
         if (keyStates[1]) {
             moveDirection = MOVE_LEFT;
         }
-        if (keyStates[2]) {
+         if (keyStates[2]) {
             moveDirection = MOVE_DOWN;
         }
-        if (keyStates[3]) {
+         if (keyStates[3]) {
             moveDirection = MOVE_RIGHT;
         }
-        else {
+        if (!isPressed) {
             moveDirection = MOVE_NONE;
         }
+
     }
     return moveDirection;
 
