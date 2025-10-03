@@ -7,7 +7,7 @@
 
 Input::Input() = default;
 
-void Input::HandleInput(const SDL_Event* event)
+MoveDirection Input::HandleInput(const SDL_Event* event)
 {
     if (event->type == SDL_EVENT_KEY_DOWN || event->type == SDL_EVENT_KEY_UP) {
         bool isPressed = (event->type == SDL_EVENT_KEY_DOWN);
@@ -40,6 +40,8 @@ void Input::HandleInput(const SDL_Event* event)
             moveDirection = MOVE_RIGHT;
         }
     }
+    return MOVE_NONE;
+
 }
 
 Input::~Input() = default;
