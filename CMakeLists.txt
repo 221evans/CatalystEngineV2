@@ -1,16 +1,28 @@
-cmake_minimum_required(VERSION 4.0)
+cmake_minimum_required(VERSION 3.20)
 project(CatalystEngineV2)
 
 set(CMAKE_CXX_STANDARD 26)
 
-# set the output directory for built objects.
-# This makes sure that the dynamic library goes into the build directory automatically.
+# Set up build output dirs
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIGURATION>")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIGURATION>")
 
-# This assumes the SDL source is available in vendored/SDL
-add_subdirectory(vendored/SDL EXCLUDE_FROM_ALL)
+# ---------------------------------------------------------
+# Option: Should we use the vendored SDL?
+# ---------------------------------------------------------
+option(CATALYSTENGINE_USE_VENDORED_SDL "Use vendored SDL/SDL_image inside this repo" ON)
 
+if(CATALYSTENGINE_USE_VENDORED_SDL)
+    message(STATUS "CatalystEngineV2: Using vendored SDL and SDL_image")
+    add_subdirectory(vendored/SDL EXCLUDE_FROM_ALL)
+    add_subdirectory(vendored/SDL_image EXCLUDE_FROM_ALL)
+else()
+    message(STATUS "CatalystEngineV2: Using parent-provided SDL and SDL_image")
+endif()
+
+# ---------------------------------------------------------
+# CatalystEngine library
+# ---------------------------------------------------------
 add_library(CatalystEngineV2 STATIC
         Input/Input.cpp
         Input/Input.h
@@ -18,11 +30,18 @@ add_library(CatalystEngineV2 STATIC
         Shapes/Shapes.h
 )
 
-target_link_libraries(CatalystEngineV2 PRIVATE SDL3::SDL3)
-target_include_directories(CatalystEngineV2 PRIVATE vendored/SDL/include
-                            ${CMAKE_CURRENT_SOURCE_DIR}
-                            ${CMAKE_CURRENT_SOURCE_DIR}/Input
-                            ${CMAKE_CURRENT_SOURCE_DIR}/Shapes)
+# Link SDL libs
+target_link_libraries(CatalystEngineV2 PRIVATE
+        SDL3::SDL3
+        SDL3_image::SDL3_image
+)
+
+# Engine include dirs
+target_include_directories(CatalystEngineV2 PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/Input
+        ${CMAKE_CURRENT_SOURCE_DIR}/Shapes
+)
 
 
 
