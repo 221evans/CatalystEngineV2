@@ -4,8 +4,23 @@
 
 #ifndef CATALYSTENGINEV2_INPUT_H
 #define CATALYSTENGINEV2_INPUT_H
+#include <SDL3/SDL.h>
+
+typedef enum {
+    MOVE_NONE,
+    MOVE_RIGHT,
+    MOVE_LEFT,
+    MOVE_UP,
+    MOVE_DOWN,
+} MoveDirection;
 
 class Input {
+public:
+    Input();
+    MoveDirection moveDirection;
+    void GetMoveDirection(const SDL_Event* event);
+    ~Input();
+
 
 };
 
