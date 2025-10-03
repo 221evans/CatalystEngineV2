@@ -20,8 +20,6 @@ public:
     MoveDirection moveDirection;
     void GetMoveDirection(const SDL_Event* event);
     ~Input();
-
-
 };
 
 

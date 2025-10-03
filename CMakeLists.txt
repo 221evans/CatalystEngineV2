@@ -17,4 +17,6 @@ add_library(CatalystEngineV2 STATIC
 )
 
 target_link_libraries(CatalystEngineV2 PRIVATE SDL3::SDL3)
-target_include_directories(CatalystEngineV2 PRIVATE vendored/SDL/include)
+target_include_directories(CatalystEngineV2 PRIVATE vendored/SDL/include
+                            ${CMAKE_CURRENT_SOURCE_DIR}
+                            ${CMAKE_CURRENT_SOURCE_DIR}/Input)
