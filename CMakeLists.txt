@@ -14,9 +14,15 @@ add_subdirectory(vendored/SDL EXCLUDE_FROM_ALL)
 add_library(CatalystEngineV2 STATIC
         Input/Input.cpp
         Input/Input.h
+        Shapes/Shapes.cpp
+        Shapes/Shapes.h
 )
 
 target_link_libraries(CatalystEngineV2 PRIVATE SDL3::SDL3)
 target_include_directories(CatalystEngineV2 PRIVATE vendored/SDL/include
                             ${CMAKE_CURRENT_SOURCE_DIR}
-                            ${CMAKE_CURRENT_SOURCE_DIR}/Input)
+                            ${CMAKE_CURRENT_SOURCE_DIR}/Input
+                            ${CMAKE_CURRENT_SOURCE_DIR}/Shapes)
+
+
+
