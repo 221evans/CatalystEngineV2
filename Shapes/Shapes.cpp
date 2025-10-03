@@ -8,11 +8,21 @@ Shapes::Shapes() {
 
 }
 
-void Shapes::DrawRectangle(SDL_Renderer* renderer, SDL_FRect* rect) const {
+void Shapes::DrawRedRectangle(SDL_Renderer* renderer, SDL_FRect* rect) const {
 
     SDL_SetRenderDrawColor(renderer,255,0,0,255);
-    SDL_RenderFillRect(renderer,rect) ;
+    SDL_RenderFillRect(renderer,rect);
 }
+
+void Shapes::DrawBlueRectangle(SDL_Renderer *renderer, SDL_FRect *rect) const {
+    SDL_SetRenderDrawColor(renderer,0,0,255,255);
+    SDL_RenderFillRect(renderer,rect);
+}
+void Shapes::DrawGreenRectangle(SDL_Renderer *renderer, SDL_FRect *rect) const {
+    SDL_SetRenderDrawColor(renderer,0,255,0,255);
+    SDL_RenderFillRect(renderer,rect);
+}
+
 
 Shapes::~Shapes() {
 }

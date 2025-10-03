@@ -11,12 +11,9 @@ class Shapes {
 public:
     Shapes();
     const SDL_Rect *rect;
-    Uint8 r;
-    Uint8 g;
-    Uint8 b;
-    Uint8 a;
-    void DrawRectangle(SDL_Renderer* renderer,SDL_FRect* rect) const;
-    void test();
+    void DrawRedRectangle(SDL_Renderer* renderer,SDL_FRect* rect) const;
+    void DrawBlueRectangle(SDL_Renderer* renderer, SDL_FRect* rect) const;
+    void DrawGreenRectangle(SDL_Renderer* render, SDL_FRect* rect) const;
     ~Shapes();
 };
 
