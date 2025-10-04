@@ -28,6 +28,7 @@ add_library(CatalystEngineV2 STATIC
         Input/Input.h
         Shapes/Shapes.cpp
         Shapes/Shapes.h
+        Flags/Flags.h
 )
 
 # Link SDL libs
@@ -41,6 +42,8 @@ target_include_directories(CatalystEngineV2 PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/Input
         ${CMAKE_CURRENT_SOURCE_DIR}/Shapes
+        ${CMAKE_CURRENT_SOURCE_DIR}/Flags
+
 )
 
 
