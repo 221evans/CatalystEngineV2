@@ -17,8 +17,11 @@ typedef enum {
 class Input {
 public:
     Input();
-    MoveDirection moveDirection;
+    MoveDirection moveDirection = MOVE_NONE;
+
     MoveDirection HandleInput(const SDL_Event* event);
+
+    MoveDirection GetMoveDirection(){ return moveDirection; }
     ~Input();
 private:
     bool keyStates[4]; // Tracking WASD (Expand when needed)

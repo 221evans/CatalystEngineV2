@@ -43,10 +43,8 @@ MoveDirection Input::HandleInput(const SDL_Event* event)
         if (!isPressed) {
             moveDirection = MOVE_NONE;
         }
-
     }
-    return moveDirection;
-
+    GetMoveDirection();
 }
 
 Input::~Input() = default;

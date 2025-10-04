@@ -43,7 +43,6 @@ target_include_directories(CatalystEngineV2 PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/Input
         ${CMAKE_CURRENT_SOURCE_DIR}/Shapes
         ${CMAKE_CURRENT_SOURCE_DIR}/Flags
-
 )
 
 
