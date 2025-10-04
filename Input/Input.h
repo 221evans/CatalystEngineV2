@@ -19,9 +19,9 @@ public:
     Input();
     MoveDirection moveDirection = MOVE_NONE;
 
-    MoveDirection HandleInput(const SDL_Event* event);
+    void HandleInput(const SDL_Event* event);
 
-    MoveDirection GetMoveDirection(){ return moveDirection; }
+    MoveDirection GetMoveDirection();
     ~Input();
 private:
     bool keyStates[4]; // Tracking WASD (Expand when needed)
