@@ -27,24 +27,16 @@ MoveDirection Input::HandleInput(const SDL_Event* event)
                 break;
             default: isPressed = false;
         }
-
-        if (keyStates[0]) {
-            moveDirection = MOVE_UP;
-        }
-        if (keyStates[1]) {
-            moveDirection = MOVE_LEFT;
-        }
-         if (keyStates[2]) {
-            moveDirection = MOVE_DOWN;
-        }
-         if (keyStates[3]) {
-            moveDirection = MOVE_RIGHT;
-        }
-        if (!isPressed) {
-            moveDirection = MOVE_NONE;
-        }
     }
-    GetMoveDirection();
+
+    // Resolve direction from current state
+    if (keyStates[0]) return moveDirection = MOVE_UP;
+    if (keyStates[1]) return moveDirection = MOVE_LEFT;
+    if (keyStates[2]) return moveDirection = MOVE_DOWN;
+    if (keyStates[3]) return moveDirection = MOVE_RIGHT;
+
+    return moveDirection = MOVE_NONE;
+
 }
 
 Input::~Input() = default;
