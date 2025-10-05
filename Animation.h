@@ -15,7 +15,7 @@ public:
     int frameIndex;
     int frameWidth;
 
-    void Animate(float deltaTime, SDL_FRect* srcRect);
+    void Animate(float deltaTime, SDL_FRect srcRect);
     ~Animation();
 };
 

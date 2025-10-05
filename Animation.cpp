@@ -7,7 +7,7 @@
 Animation::Animation() : totalFrames(0), frameDelay(0), frameCounter(0), frameIndex(0),frameWidth(64) {
 }
 
-void Animation::Animate(float deltaTime, SDL_FRect* srcRect) {
+void Animation::Animate(float deltaTime, SDL_FRect srcRect) {
 
     frameCounter += deltaTime;
     if (frameCounter >= frameDelay) {
