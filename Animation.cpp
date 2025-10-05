@@ -13,7 +13,7 @@ void Animation::Animate(float deltaTime, SDL_FRect* srcRect) {
     if (frameCounter >= frameDelay) {
 
         frameCounter -= frameDelay;
-        frameIndex = (frameIndex + 1) % frameWidth;
+        frameIndex = (frameIndex + 1) % totalFrames;
         srcRect->x = static_cast<float>(frameIndex) *  static_cast<float>(frameWidth);
     }
 }
