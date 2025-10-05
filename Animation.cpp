@@ -14,7 +14,7 @@ void Animation::Animate(float deltaTime, SDL_FRect srcRect) {
 
         frameCounter -= frameDelay;
         frameIndex = (frameIndex + 1) % frameWidth;
-        srcRect->x = static_cast<float>(frameIndex) *  static_cast<float>(frameWidth);
+        srcRect.x = static_cast<float>(frameIndex) *  static_cast<float>(frameWidth);
     }
 }
 
